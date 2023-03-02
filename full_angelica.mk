@@ -15,21 +15,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-$(call inherit-product, device/xiaomi/angelica/full_angelica.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit from XIAOMI REDMI device
+$(call inherit-product, device/xiaomi/angelica/device.mk)
 
-PRODUCT_NAME := lineage_angelica
-BOARD_VENDOR := xiaomi
-
-# TODO: What is this?
-#PRODUCT_GMS_CLIENTID_BASE := android-micromax
-
-## Use the latest approved GMS identifiers unless running a signed build
-ifneq ($(SIGN_BUILD),true)
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=BLU/Life_One_X2/Life_One_X2:6.0.1/MMB29M/1477622278:user/release-keys \
-    PRIVATE_BUILD_DESC="p7701-user 6.0.1 MMB29M eng.android.1477619128 release-keys"
-endif
+# Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := angelica
+PRODUCT_NAME := full_m2006C3mg_Redmi_9C
+PRODUCT_BRAND := redmi
+PRODUCT_MODEL := M2006C3MG
+PRODUCT_MANUFACTURER := xiaomi
 

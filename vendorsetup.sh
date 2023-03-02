@@ -1,1 +1,3 @@
-add_lunch_combo angelica_arm-eng
+add_lunch_combo aosp_lineage-user
+add_lunch_combo aosp_lineage-userdebug
+add_lunch_combo aosp_lineage-eng
